@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  venue: one
+  reservations: one
+  event_type: 1
+  source: 1
+  occurred_at: 2026-08-27 01:42:28
+
+two:
+  venue: two
+  reservations: two
+  event_type: 1
+  source: 1
+  occurred_at: 2026-08-27 01:42:28

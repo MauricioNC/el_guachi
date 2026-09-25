@@ -1,0 +1,29 @@
+<div class="w-full h-full p-3">
+  <%= form_with model: @reservation, class: "m-0 relative" do |f| %>
+    <div class="w-full flex flex-col justify-center items-start mb-3">
+      <%= f.label :name, "Nombre completo", class: "mb-1 font-medium" %>
+      <%= f.text_field :name, class: "w-full p-1 border border-gray-600 rounded-xs" %>
+    </div>
+    <div class="w-full flex flex-col justify-center items-start mb-3">
+      <%= f.label :reserved_count, "Numero de personas", class: "font-medium" %>
+      <span class="mb-2 text-gray-400 text-sm">Min. 4 personas, Max. 6 personas por mesa</span>
+      
+      <%= f.text_field :reserved_count, in: 1..6, step: 1, value: 4, class: "w-full p-1 border border-gray-600 rounded-xs" %>
+    </div>
+    <div class="w-full flex flex-col justify-center items-start mb-3">
+      <%= f.label :table_number, class: "mb-1 font-medium flex flex-row justify-center items-center gap-2" do %>
+        Numero de mesa
+        <span class="text-xl">&rarr;</span>
+        <%= link_to "Ver mapa", "#", class: "font-normal text-blue-800" %>
+      <% end %>
+      
+      <%= f.text_field :table_number, in: 1..36, step: 1, value: 1, class: "w-full p-1 border border-gray-600 rounded-xs" %>
+    </div>
+    <div class="w-full flex flex-col justify-center items-start mb-3">
+      <%= f.label :starts_at, "Fecha de reservacion", class: "mb-1 font-medium" %>
+      <%= f.date_field :starts_at, class: "w-full p-1 border border-gray-600 rounded-xs" %>
+    </div>
+
+    <%= f.submit "Crear reservacion", class: "w-full bg-[#01a6e0] text-white font-semibold p-2 mt-2 rounded-xs" %>
+  <% end %>
+</div>
