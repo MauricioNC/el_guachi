@@ -1,0 +1,10 @@
+<div>
+  <ul>
+    <li><span>Nombre de la reservacion: </span><%= @reservation.name %></li>
+    <li><span>Lugar: </span><%= @reservation.venue.name %></li>
+    <li><span>Numero de acompañantes: </span><%= @reservation.reserved_count %></li>
+    <li><span>Numero de mesa: </span><%= @reservation.table.number %></li>
+    <li><span>Fecha: </span><%= @reservation.starts_at.strftime("%B %d, %Y") %></li>
+    <%= print_qr(@reservation) %>
+  </ul>
+</div>

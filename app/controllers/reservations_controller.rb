@@ -1,5 +1,10 @@
 class ReservationsController < ApplicationController
   before_action :set_table, :set_venue, only: %i[create]
+  
+  def show
+    @reservation = Reservation.find_by(qr_token: params[:token])
+  end
+
   def new
     @reservation = Reservation.new
   end
@@ -12,7 +17,7 @@ class ReservationsController < ApplicationController
     @reservation.qr_token = SecureRandom.alphanumeric(16)
 
     if @reservation.save
-      redirect_to root_path
+      redirect_to reservation_path(@reservation.qr_token)
     else
       render :new, stats: :unprocessable_entity
     end

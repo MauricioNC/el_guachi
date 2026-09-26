@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :reservations
+  resources :reservations, except: %i[show]
+
+  get "reservation/:token", to: "reservations#show"
 end
